@@ -1,6 +1,5 @@
 // @ts-nocheck
 import _ from "lodash";
-import axios from "axios";
 
 var threshold = 45;
 var audience = "Knowledgeable",
@@ -52,28 +51,69 @@ let getTextContent = (function (): string {
 
 // Function to append advisory
 let addWarning = (function () {
-    return function (el: Element, score: number) {
+    return async function (el: Element, score: number) {
         console.log(el);
         // Get the tweet from this element
         let blockInnerTextContent = el.querySelectorAll(
             'div[data-content-editable-leaf="true"]'
         )[0];
 
-        blockInnerTextContent.style.position = "relative";
-        const modal = blockInnerTextContent.appendChild(
-            document.createElement("div")
-        );
-        modal.innerHTML = `
-        <div className="Modal">
-            <h1>Test</h1>
-        </div>
-        `;
-        console.log("#1", blockInnerTextContent.innerHTML);
-        blockInnerTextContent.innerHTML = "KEI LOK IS A BOT";
+        blockInnerTextContent.style.color = "red";
+        blockInnerTextContent.addEventListener("click", () => {});
+
+        // blockInnerTextContent.style.position = "relative";
+        // const modal = blockInnerTextContent.appendChild(
+        //     document.createElement("div")
+        // );
+        // modal.innerHTML = `
+        // <div className="Modal">
+        //     <h1>Test</h1>
+        // </div>
+        // `;
+        // console.log("#1", blockInnerTextContent.innerHTML);
+        // blockInnerTextContent.innerHTML = "KEI LOK IS A BOT";
+        // const resp = await fetch("http://localhost:5000/api/v1/analyze", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //         // 'Content-Type': 'application/x-www-form-urlencoded',
+        //     },
+        //     body: JSON.stringify({
+        //         text: blockInnerTextContent.textContent
+        //     })
+        // });
+
+        // console.log(resp);
 
         return;
     };
 })();
+
+async function generateNewContentAndReplace(currentNode) {
+    console.log("Ran generateNewContentAndReplace!");
+    const resp = await fetch("http://localhost:5000/api/v1/completion", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            context: "general",
+            audience: "general",
+            intent: "general",
+            formality: "neutral",
+            roleplay: "anyone",
+            text: currentNode.textContent
+        })
+    });
+    // const resp = await new Promise((resolve, reject) => {
+    //     setTimeout(() => {
+    //         resolve(Math.floor(Math.random() * 50));
+    //     }, 1000);
+    // });
+    console.log(resp);
+    // currentNode.innerHTML = resp.content;
+    currentNode.style.color = "black";
+}
 
 async function getBlockTextContentRiskScore(blockText): number {
     // axios.post("http://localhost:5000/api/v1/analyze", {
