@@ -97,8 +97,9 @@ async function generateNewContentAndReplace(currentNode) {
     try {
         const resp = await fetch("http://localhost:8080/api/v1/completion", {
             method: 'POST',
-            mode: 'no-cors',
+            // mode: 'no-cors',
             headers: {
+                'Accept': "application/json",
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
@@ -110,9 +111,11 @@ async function generateNewContentAndReplace(currentNode) {
                 text: currentNode.textContent
             })
         });
-        const data = await resp.json();
+        // const data = await resp.json();
         console.log(resp);
-        console.log(data);
+        if (resp.ok) {
+            console.log(await resp.json());
+        }
     } catch (error) {
         console.log(error)
     }
