@@ -2,13 +2,24 @@ import numpy as np
 import torch
 from torch.nn import CrossEntropyLoss
 
-def compute_perplexity(session, tokenizer, predictions, batch_size: int = 16, add_start_token: bool = True, device='cuda', max_length=None):
+
+def compute_perplexity(
+    session,
+    tokenizer,
+    predictions,
+    batch_size: int = 16,
+    add_start_token: bool = True,
+    device="cuda",
+    max_length=None,
+):
 
     # if batch_size > 1 (which generally leads to padding being required), and
     # if there is not an already assigned pad_token, assign an existing
     # special token to also be the padding token
     if tokenizer.pad_token is None and batch_size > 1:
-        existing_special_tokens = list(tokenizer.special_tokens_map_extended.values())
+        existing_special_tokens = list(
+            tokenizer.special_tokens_map_extended.values()
+        )
         # check that the model already has at least one special token defined
         assert (
             len(existing_special_tokens) > 0
@@ -40,7 +51,9 @@ def compute_perplexity(session, tokenizer, predictions, batch_size: int = 16, ad
 
     # check that each input is long enough:
     if add_start_token:
-        assert torch.all(torch.ge(attn_masks.sum(1), 1)), "Each input text must be at least one token long."
+        assert torch.all(
+            torch.ge(attn_masks.sum(1), 1)
+        ), "Each input text must be at least one token long."
     else:
         assert torch.all(
             torch.ge(attn_masks.sum(1), 2)
@@ -55,16 +68,32 @@ def compute_perplexity(session, tokenizer, predictions, batch_size: int = 16, ad
         attn_mask = attn_masks[start_index:end_index]
 
         if add_start_token:
-            bos_tokens_tensor = torch.tensor([[tokenizer.bos_token_id]] * encoded_batch.size(dim=0)).to(device)
-            encoded_batch = torch.cat([bos_tokens_tensor, encoded_batch], dim=1)
+            bos_tokens_tensor = torch.tensor(
+                [[tokenizer.bos_token_id]] * encoded_batch.size(dim=0)
+            ).to(device)
+            encoded_batch = torch.cat(
+                [bos_tokens_tensor, encoded_batch], dim=1
+            )
             attn_mask = torch.cat(
-                [torch.ones(bos_tokens_tensor.size(), dtype=torch.int64).to(device), attn_mask], dim=1
+                [
+                    torch.ones(bos_tokens_tensor.size(), dtype=torch.int64).to(
+                        device
+                    ),
+                    attn_mask,
+                ],
+                dim=1,
             )
 
         labels = encoded_batch
 
         with torch.no_grad():
-            output = session.run(['logits'], input_feed = {"input_ids":encoded_batch.cpu().numpy(), "attention_mask":attn_mask.cpu().numpy()})
+            output = session.run(
+                ["logits"],
+                input_feed={
+                    "input_ids": encoded_batch.cpu().numpy(),
+                    "attention_mask": attn_mask.cpu().numpy(),
+                },
+            )
             out_logits = torch.tensor(output[0], device=device)
             # out_logits = model(encoded_batch, attention_mask=attn_mask).logits
 
@@ -73,7 +102,10 @@ def compute_perplexity(session, tokenizer, predictions, batch_size: int = 16, ad
         shift_attention_mask_batch = attn_mask[..., 1:].contiguous()
 
         perplexity_batch = torch.exp(
-            (loss_fct(shift_logits.transpose(1, 2), shift_labels) * shift_attention_mask_batch).sum(1)
+            (
+                loss_fct(shift_logits.transpose(1, 2), shift_labels)
+                * shift_attention_mask_batch
+            ).sum(1)
             / shift_attention_mask_batch.sum(1)
         )
 

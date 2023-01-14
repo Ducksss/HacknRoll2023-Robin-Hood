@@ -52,11 +52,12 @@ def completion(
 
     return {"completion": completion.choices[0].text.replace("\n\n", "")}
 
+
 @router.post("/detect")
 def detect(
     request: DetectIn,
     raw_request: Request,
-):  
+):
     sentences = sent_tokenize(request.text)
     result = compute_perplexity(
         session=raw_request.app.package["session"],
