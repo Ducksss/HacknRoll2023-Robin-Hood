@@ -59,7 +59,9 @@ let addWarning = (function () {
         )[0];
 
         blockInnerTextContent.style.color = "red";
-        blockInnerTextContent.addEventListener("click", () => {});
+        blockInnerTextContent.addEventListener("click", () => {
+            generateNewContentAndReplace(blockInnerTextContent);
+        });
 
         // blockInnerTextContent.style.position = "relative";
         // const modal = blockInnerTextContent.appendChild(
@@ -90,27 +92,37 @@ let addWarning = (function () {
 })();
 
 async function generateNewContentAndReplace(currentNode) {
+    console.log(currentNode);
     console.log("Ran generateNewContentAndReplace!");
-    const resp = await fetch("http://localhost:5000/api/v1/completion", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            context: "general",
-            audience: "general",
-            intent: "general",
-            formality: "neutral",
-            roleplay: "anyone",
-            text: currentNode.textContent
-        })
-    });
+    try {
+        const resp = await fetch("http://localhost:8080/api/v1/completion", {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                context: "general",
+                audience: "general",
+                intent: "general",
+                formality: "neutral",
+                role: "anyone",
+                text: currentNode.textContent
+            })
+        });
+        const data = await resp.json();
+        console.log(resp);
+        console.log(data);
+    } catch (error) {
+        console.log(error)
+    }
+
     // const resp = await new Promise((resolve, reject) => {
     //     setTimeout(() => {
     //         resolve(Math.floor(Math.random() * 50));
     //     }, 1000);
     // });
-    console.log(resp);
+
     // currentNode.innerHTML = resp.content;
     currentNode.style.color = "black";
 }

@@ -6,4 +6,4 @@ services:
     ports: 
       - 8080:8080
     environment:
-      - OPENAI_API_KEY="<your-openai-api-key>"
+      - OPENAI_API_KEY=<your-openai-api-key>
