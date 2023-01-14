@@ -17,6 +17,7 @@ const TextConversionOption = ({ name, options }: TextConversionOptionProps) => {
 
     const dropdownSelect = (newSelectedOption: any) => {
         setSelectedOption(newSelectedOption);
+        setOpenDropdown(false);
     };
     console.log(selectedOption);
 
