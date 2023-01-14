@@ -50,7 +50,7 @@ def completion(
         temperature=0.5,
     )
 
-    return {"completion": completion.choices[0].text}
+    return {"completion": completion.choices[0].text.replace("\n\n", "")}
 
 @router.post("/detect")
 def detect(
