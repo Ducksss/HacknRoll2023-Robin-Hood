@@ -2,13 +2,44 @@
 import _ from "lodash";
 import axios from "axios";
 
-var threshold = 0;
+var threshold = 45;
 var activePopup = false;
 var audience = "Knowledgeable",
     formality = "Neutral",
     positivity = "Neutral",
     intent,
     context;
+
+chrome.storage.local.get("audience", (data) => {
+    if (chrome.runtime.lastError) {
+        return;
+    }
+    audience = data.audience;
+});
+chrome.storage.local.get("formality", (data) => {
+    if (chrome.runtime.lastError) {
+        return;
+    }
+    formality = data.formality;
+});
+chrome.storage.local.get("positivity", (data) => {
+    if (chrome.runtime.lastError) {
+        return;
+    }
+    positivity = data.positivity;
+});
+chrome.storage.local.get("context", (data) => {
+    if (chrome.runtime.lastError) {
+        return;
+    }
+    context = data.context;
+});
+chrome.storage.local.get("intent", (data) => {
+    if (chrome.runtime.lastError) {
+        return;
+    }
+    intent = data.intent;
+});
 
 // Get the wrapper element
 function getWrapper() {
@@ -54,14 +85,15 @@ let getTextContent = (function (): string {
 // Function to append advisory
 let addWarning = (function () {
     return function (el: Element, score: number) {
+        console.log(el);
         // Get the tweet from this element
         let blockInnerTextContent = el.querySelectorAll(
             'div[data-content-editable-leaf="true"]'
         )[0];
 
-        if (blockInnerTextContent) {
-            // Add the .warning class to the block from the style.css
-        }
+        console.log("#1", blockInnerTextContent.innerHTML);
+        blockInnerTextContent.innerHTML = "KEI LOK IS A BOT";
+
         return;
     };
 })();
