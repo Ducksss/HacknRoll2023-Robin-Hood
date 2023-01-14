@@ -1,12 +1,12 @@
 // @ts-nocheck
 import _ from "lodash";
 
-var threshold = 35;
-var audience = "Knowledgeable",
-    formality = "Neutral",
-    positivity = "Neutral",
-    intent,
-    context;
+var threshold = 22.5;
+var audience = "lecturers",
+    formality = "formal",
+    role = "male teenage student",
+    intent = "to educate",
+    context = "article";
 
 // Get the wrapper element
 function getWrapper() {
@@ -36,14 +36,12 @@ let scanDiv = (function () {
 // Get the text content from the scanDiv wrapper
 let getTextContent = (function (): string {
     return function (el) {
-        let block = el.querySelectorAll('div[class="notion-selectable"]')[0];
-
         // Only proceed if query success, otherwise return empty string
-        if (block) {
-            let blockInnerTextContent = block.querySelectorAll(
+        if (el) {
+            let blockInnerTextContent = el.querySelectorAll(
                 'div[data-content-editable-leaf="true"]'
             )[0];
-            if (blockContent) return blockInnerTextContent.innerText;
+            if (blockInnerTextContent) return blockInnerTextContent.innerText;
             else return "";
         } else return "";
     };
@@ -86,11 +84,11 @@ async function getNewGeneratedContentForReplacement(currentNode) {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                context: "general",
-                audience: "general",
-                intent: "general",
-                formality: "neutral",
-                role: "anyone",
+                context: context,
+                audience: audience,
+                intent: intent,
+                formality: formality,
+                role: role,
                 text: currentNode.textContent
             })
         });
@@ -110,26 +108,27 @@ async function getNewGeneratedContentForReplacement(currentNode) {
 
 }
 
-async function getBlockTextContentRiskScore(blockText): Promise<number> {
+async function getBlockTextContentRiskScore(blockText) {
     // Return a random between 0 to 50
-    return new Promise((resolve, reject) => {
-        try {
-            const resp = await fetch("http://localhost:8080/api/v1/detection", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    raw_request: blockText
-                })
-            });
-            const result = await resp.json();
-            console.log(result);
-            resolve(result);
-        } catch (error) {
-            console.log(error);
-        }
-    });
+    try {
+        console.log("Raw texts", blockText)
+        const resp = await fetch("http://localhost:8080/api/v1/detect", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                text: blockText
+            })
+        });
+
+        const result = await resp.json();
+        console.log(result.result);
+        return Promise.resolve(result.result);
+    } catch (error) {
+        console.log(error);
+        return Promise.reject(error)
+    }
 }
 
 // Function to append advisory card to sidebar (right side)
@@ -212,12 +211,15 @@ let runScript = (function () {
             blockTextRiskScore = await getBlockTextContentRiskScore(
                 blockTextContent
             );
+
             // Log score of content
             console.log(
                 "Paragraph has a risk score eval of: " + blockTextRiskScore
             );
 
-            if (blockTextRiskScore > threshold) {
+            console.log("blockTextRiskScore", blockTextRiskScore)
+            console.log("threshold", threshold)
+            if (blockTextRiskScore < threshold) {
                 console.log("THIS IS BEING INVOKED! INDEED!");
                 addWarning(node, score);
             }

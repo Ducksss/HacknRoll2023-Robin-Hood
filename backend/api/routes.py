@@ -47,7 +47,7 @@ async def completion(
         engine="text-davinci-003",
         prompt=prompt,
         max_tokens=2048,
-        temperature=0.5,
+        temperature=0.9,
     )
 
     return {"completion": completion.choices[0].text.replace("\n\n", "")}
