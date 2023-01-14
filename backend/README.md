@@ -34,4 +34,12 @@ uvicorn main:app --host 0.0.0.0 --port 8080
 
 ### Build and Start the Docker Container
 
-WIP
+To access the backend, you need to first build the Docker container using the following command
+```
+docker build -t catch-me-if-you-can .
+```
+
+After the container is created, you can run the following commands to start the Docker container
+```
+docker run -p 8080:8080 -it catch-me-if-you-can
+```
