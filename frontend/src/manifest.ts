@@ -36,7 +36,7 @@ const manifest: ManifestType = {
     ],
     web_accessible_resources: [
         {
-            resources: [],
+            resources: ["src/pages/modal/index.html", "public/*"],
             matches: ["https://www.notion.so/*"]
         }
     ]

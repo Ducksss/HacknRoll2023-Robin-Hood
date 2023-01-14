@@ -11,3 +11,172 @@
     /* Add a background */
     background-color: #e9f0fd;
 }
+
+.Sidebar__SidebarWrapper {
+    height: 100%;
+    font-family: "Open Sans", sans-serif;
+    z-index: 997;
+    background-color: #f4f6f7;
+    width: 300px;
+}
+
+.Sidebar__HeaderWrapper {
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    --tw-bg-opacity: 1;
+    background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+    padding: 8px;
+    height: 70px;
+    width: 300px;
+    box-shadow: 0px 2px 4px rgb(0 0 0 / 15%);
+    border-radius: 4px;
+}
+
+.Sidebar___StyledDiv8 {
+}
+
+.Sidebar___StyledSpan {
+}
+
+.SideBar hr {
+    height: 0px;
+    border: none;
+    border-top: 0.0000000001px solid #6e6e73;
+    border-radius: 5px;
+}
+.SideBar .Title {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.SideBar .Title img {
+    height: 50px;
+    width: 50px;
+}
+.SideBar .Title .Right {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+}
+.SideBar .Title .Right h1 {
+    color: #05603a;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+}
+.SideBar .Title .Right p {
+    color: #3c3c3c;
+}
+.SideBar .Zero-shot {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.SideBar .Zero-shot h2 {
+    font-size: 17px;
+    font-weight: bold;
+    color: #293056;
+}
+.SideBar .Text-conversion {
+    padding: 20px;
+}
+.SideBar .Text-conversion__Header {
+    color: #293056;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: left;
+}
+.SideBar .Footer {
+    padding: 0 20px;
+    padding-bottom: 20px;
+}
+.SideBar .Footer p {
+    color: #3c3c3c;
+}
+.Text-conversion-option {
+    padding: 20px 0;
+    position: relative;
+}
+.Text-conversion-option__Header {
+    text-align: left;
+    padding-bottom: 10px;
+}
+.Text-conversion-option .Text-conversion-option__Parent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+    border: thin solid #cfcfcf;
+    background-color: white;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.Text-conversion-option .Text-conversion-option__Parent h3 span {
+    color: #667085;
+}
+.Text-conversion-option .Text-conversion-option__Parent .Icon {
+    font-size: 20px;
+    transition: transform 0.2s ease;
+}
+.Text-conversion-option .Text-conversion-option__Parent .Icon--expanded {
+    transform: rotate(-180deg);
+}
+.Text-conversion-option .Container {
+    z-index: 9999999999999;
+    display: none;
+    background-color: white;
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+    position: absolute;
+}
+.Text-conversion-option .Container--expanded {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+.Text-conversion-option .Container .Item {
+    cursor: pointer;
+    padding: 10px 0;
+}
+.Text-conversion-option .Container .Item:hover {
+    background-color: #d7d7d7;
+}
+.Text-conversion-option .Container .Item:last-of-type {
+    border-radius: 0 0 5px 5px;
+}
+
+.SideBar-header {
+    font-size: 20px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+.SideBar-content {
+    padding: 10px;
+}
+
+.Card {
+    --tw-bg-opacity: 1;
+    background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+    border-radius: 8px;
+    box-shadow: 0px 2px 2px rgb(0 0 0 / 10%);
+    word-break: break-word;
+    width: 270px;
+    margin: 7px 16px;
+    padding: 8px;
+    border: 1px solid #c2c2c266;
+}
+
+.card-title {
+    font-size: 10px;
+    font-weight: bold;
+    color: red;
+}
