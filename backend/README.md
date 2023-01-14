@@ -25,6 +25,11 @@ Catch me if you can make use of OpenAI's API to access GPT-3. To access OpenAI's
     cp .env.example .env
     ```
 
+### Create onnx file
+Create onnx file.
+```
+python -m model.onnx --model=gpt2 --feature=causal-lm onnx/
+```
 
 ### Start the Development Server
 Run the following commands to start the server in development mode.
@@ -41,5 +46,5 @@ docker build -t catch-me-if-you-can .
 
 After the container is created, you can run the following commands to start the Docker container
 ```
-docker run -p 8080:8080 -it catch-me-if-you-can
+docker run --rm --name robin_hood -p 8080:8080 --gpus all -it catch-me-if-you-can
 ```

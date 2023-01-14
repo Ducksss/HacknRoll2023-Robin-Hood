@@ -1,11 +1,14 @@
 import logging
 
 import openai
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Request
+from nltk.tokenize import sent_tokenize
 
 from api.config import settings
-from models.openai import CompletionIn
 from api.depends import get_openai
+from api.utils import compute_perplexity
+from models.detect import DetectIn
+from models.openai import CompletionIn
 
 
 prefix = "/api/v1"
@@ -48,3 +51,17 @@ def completion(
     )
 
     return {"completion": completion.choices[0].text}
+
+@router.post("/detect")
+def detect(
+    request: DetectIn,
+    raw_request: Request,
+):  
+    sentences = sent_tokenize(request.text)
+    result = compute_perplexity(
+        session=raw_request.app.package["session"],
+        tokenizer=raw_request.app.package["tokenizer"],
+        predictions=sentences,
+    )
+
+    return {"result": result}
