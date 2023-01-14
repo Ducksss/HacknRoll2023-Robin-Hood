@@ -12,7 +12,6 @@ router = APIRouter(
     prefix=settings.ROUTE_PREFIX,
     responses={
         404: {"error": "Not found"},
-        500: {"server_error": "Internal server error"}
-    }
+        500: {"server_error": "Internal server error"},
+    },
 )
-
