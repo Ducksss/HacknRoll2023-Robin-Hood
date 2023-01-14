@@ -7,12 +7,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from api.config import settings
 from api.routes import router
 
-if settings.OPENAI_API_KEY is None:
-    raise ValueError(
-        "OPENAI_API_KEY cannot be found from the environment variable."
-        "Please read the detailed instructions at README.md"
-    )
-
 
 def create_app() -> FastAPI:
 
