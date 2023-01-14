@@ -69,16 +69,16 @@ let addWarning = (function () {
 
         blockInnerTextContent.style.color = "red";
         blockInnerTextContent.addEventListener("click", () => {
-            generateNewContentAndReplace(blockInnerTextContent);
+            getNewGeneratedContentForReplacement(blockInnerTextContent);
         });
 
         return;
     };
 })();
 
-async function generateNewContentAndReplace(currentNode) {
+async function getNewGeneratedContentForReplacement(currentNode) {
     console.log(currentNode);
-    console.log("Ran generateNewContentAndReplace!");
+    console.log("Ran getNewGeneratedContentForReplacement!");
     try {
         const resp = await fetch("http://localhost:8080/api/v1/completion", {
             method: "POST",
@@ -105,17 +105,25 @@ async function generateNewContentAndReplace(currentNode) {
     currentNode.style.color = "black";
 }
 
-async function getBlockTextContentRiskScore(blockText): number {
-    // Awaiting backend team to introduce API and return a score
-    // axios.post("http://localhost:5000/api/v1/analyze", {
-    //     text: blockText
-    // });
-
+async function getBlockTextContentRiskScore(blockText): Promise<number> {
     // Return a random between 0 to 50
     return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(Math.floor(Math.random() * 50));
-        }, 1000);
+        try {
+            const resp = await fetch("http://localhost:8080/api/v1/detection", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    raw_request: blockText
+                })
+            });
+            const result = await resp.json();
+            console.log(result);
+            resolve(result);
+        } catch (error) {
+            console.log(error);
+        }
     });
 }
 
