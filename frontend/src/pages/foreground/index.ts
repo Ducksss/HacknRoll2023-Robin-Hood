@@ -1,30 +1,16 @@
-function getWrapper() {
-    return document.querySelectorAll('div[aria-label^="Timeline:"] > div')[0];
-}
+// Client ID and API key from the Developer Console
+var CLIENT_ID = "Hack&Roll API Key";
+var API_KEY = "AIzaSyASzrUVFuUY_7ujuHjXYUaXJm2JgXNRjJQ";
 
-function waitFor(
-    varSetter: any,
-    sleepTime: number,
-    condition: any,
-    continuation: any
-) {
-    let variable = varSetter();
-    if (!condition(variable)) {
-        setTimeout(
-            () => waitFor(varSetter, sleepTime, condition, continuation),
-            sleepTime
-        );
-    } else {
-        continuation(variable);
-    }
-}
+// Array of API discovery doc URLs for APIs used by the sample
+var DISCOVERY_DOCS = ["https://docs.googleapis.com/$discovery/rest?version=v1"];
 
-waitFor(
-    () => document.getElementById("myId"),
-    100,
-    (variable: any) => variable !== null,
-    (variable: any) => {
-        // do something with variable
-        console.log("HELLO WORLD");
-    }
-);
+// Authorization scopes required by the API; multiple scopes can be
+// included, separated by spaces.
+var SCOPES = "https://www.googleapis.com/auth/documents.readonly";
+
+var authorizeButton = document.getElementById("authorize-button");
+var signoutButton = document.getElementById("signout-button");
+
+
+console.log("Successful build and invocation")

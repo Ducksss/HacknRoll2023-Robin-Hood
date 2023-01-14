@@ -5,9 +5,9 @@
   "description": "A simple chrome extension template with Vite, React, TypeScript and Tailwind CSS.",
   "permissions": [
     "storage",
+    "tabs",
     "activeTab",
-    "scripting",
-    "tabs"
+    "scripting"
   ],
   "options_page": "src/pages/options/index.html",
   "background": {

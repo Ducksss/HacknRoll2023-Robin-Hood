@@ -6,7 +6,7 @@ const manifest: ManifestType = {
     name: pkg.displayName,
     version: pkg.version,
     description: pkg.description,
-    permissions: ["storage", "activeTab", "scripting", "tabs"],
+    permissions: ["storage", "tabs", "activeTab", "scripting"],
     options_page: "src/pages/options/index.html",
     background: {
         service_worker: "src/pages/background/index.js",
