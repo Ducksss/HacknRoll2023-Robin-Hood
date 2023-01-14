@@ -11,6 +11,9 @@ from onnxruntime import InferenceSession
 from transformers import AutoTokenizer
 
 
+from fastapi.middleware.cors import CORSMiddleware
+
+
 
 def create_app() -> FastAPI:
 
@@ -32,21 +35,13 @@ def create_app() -> FastAPI:
 logging.info("Creating FastAPI app.")
 app = create_app()
 
-
-if settings.BACKEND_CORS_ORIGINS:
-    logging.info("Adding app middleware")
-    logging.debug(
-        f"Origins: {[str(origin) for origin in settings.BACKEND_CORS_ORIGINS]}"
-    )
-    app.add_middleware(
-        CORSMiddleware,
-        allow_origins=[
-            str(origin) for origin in settings.BACKEND_CORS_ORIGINS
-        ],
-        allow_credentials=True,
-        allow_methods=["*"],
-        allow_headers=["*"],
-    )
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.on_event("startup")
 async def startup_event():

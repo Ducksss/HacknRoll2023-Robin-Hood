@@ -11,6 +11,7 @@ const manifest: ManifestType = {
         type: "module"
     },
     action: {
+        default_popup: "src/pages/popup/index.html",
         default_icon: {
             "16": "icon-128.png",
             "32": "icon-128.png",
