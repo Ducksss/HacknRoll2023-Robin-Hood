@@ -13,14 +13,6 @@ function getWrapper() {
     return document.querySelectorAll('div[class="notion-page-content"]')[0];
 }
 
-function setTextContent(el, text) {
-    let blockContent = el.querySelectorAll(
-        'div[data-content-editable-leaf="true"]'
-    )[0];
-    window.alert("blockContent: " + "clicked");
-    blockContent.innerText = "Clicked!";
-}
-
 // Function to scan for new elements
 let scanDiv = (function () {
     var MutationObserver =
@@ -56,6 +48,14 @@ let getTextContent = (function (): string {
         } else return "";
     };
 })();
+
+let setTextContent = (el, text) => {
+    let blockContent = el.querySelectorAll(
+        'div[data-content-editable-leaf="true"]'
+    )[0];
+    window.alert("blockContent: " + "clicked");
+    blockContent.innerText = "Clicked!";
+};
 
 // Function to append advisory
 let addWarning = (function () {
