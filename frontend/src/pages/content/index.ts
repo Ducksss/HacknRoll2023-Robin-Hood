@@ -1,7 +1,9 @@
 // @ts-nocheck
 import _ from "lodash";
+import axios from "axios";
+import styles from "../styl";
 
-var threshold = 30;
+var threshold = 0;
 var activePopup = false;
 var audience = "Knowledgeable",
     formality = "Neutral",
@@ -35,9 +37,8 @@ let scanDiv = (function () {
 })();
 
 // Get the text content from the scanDiv wrapper
-let getTextContent = (function () {
+let getTextContent = (function (): string {
     return function (el) {
-        el.querySelectorAll('div[class="notion-selectable"]');
         let block = el.querySelectorAll('div[class="notion-selectable"]')[0];
 
         // Only proceed if query success, otherwise return empty string
@@ -51,7 +52,26 @@ let getTextContent = (function () {
     };
 })();
 
-function getBlockTextContentRiskScore(blockText) {
+// Function to append advisory
+let addWarning = (function () {
+    return function (el: Element, score: number) {
+        // Get the tweet from this element
+        let blockInnerTextContent = el.querySelectorAll(
+            'div[data-content-editable-leaf="true"]'
+        )[0];
+
+        if (blockInnerTextContent) {
+            // Add the .warning class to the block from the style.css
+        }
+        return;
+    };
+})();
+
+function getBlockTextContentRiskScore(blockText): number {
+    // axios.post("http://localhost:5000/api/v1/analyze", {
+    //     text: blockText
+    // });
+
     // Return a random between 0 to 50
     return Math.random() * 50;
 }
@@ -73,15 +93,9 @@ let runScript = (function () {
                 "Paragraph has a risk score eval of: " + blockTextRiskScore
             );
 
-            if (blockTextRiskScore) {
-                // Only add the score if it has not already been added
-                // totalScore += score;
-                // if (!activePopup) counter++;
-                // if (counter >= 10) {
-                //     activePopup = true;
-                //     counter = 0;
-                // }
-                // addWarning(node, score);
+            if (blockTextRiskScore > threshold) {
+                console.log("THIS IS BEING INVOKED! INDEED!");
+                addWarning(node, score);
             }
         }
     };
@@ -141,3 +155,36 @@ waitFor(
         })();
     }
 );
+
+/** CSS */
+var fa = document.createElement("style");
+fa.type = "text/css";
+fa.textContent =
+    `@font-face { font-family: 'Pacifico'; font-style: normal; font-weight: 400; src: url("` +
+    chrome.runtime.getURL("fonts/Pacifico-Regular.woff2") +
+    '"); }';
+document.head.appendChild(fa);
+
+var fa2 = document.createElement("style");
+fa2.type = "text/css";
+fa2.textContent =
+    `@font-face { font-family: 'Comfortaa'; font-style: normal; font-weight: 400; src: url("` +
+    chrome.runtime.getURL("fonts/Comfortaa-Regular.woff2") +
+    '"); }';
+document.head.appendChild(fa2);
+
+var fa3 = document.createElement("style");
+fa3.type = "text/css";
+fa3.textContent =
+    `@font-face { font-family: 'Comfortaa'; font-style: normal; font-weight: 300; src: url("` +
+    chrome.runtime.getURL("fonts/Comfortaa-Light.woff2") +
+    '"); }';
+document.head.appendChild(fa3);
+
+var fa4 = document.createElement("style");
+fa4.type = "text/css";
+fa4.textContent =
+    `@font-face { font-family: 'Comfortaa'; font-style: normal; font-weight: 700; src: url("` +
+    chrome.runtime.getURL("fonts/Comfortaa-Bold.woff2") +
+    '"); }';
+document.head.appendChild(fa4);

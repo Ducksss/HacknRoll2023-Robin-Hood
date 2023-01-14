@@ -1,0 +1,13 @@
+/* Add a blue background */
+.warning {
+    color: #e9eafd;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: #ff0000;
+    text-decoration-thickness: 2px;
+}
+
+.warning:hover {
+    /* Add a background */
+    background-color: #e9f0fd;
+}
