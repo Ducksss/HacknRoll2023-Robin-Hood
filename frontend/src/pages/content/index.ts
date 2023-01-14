@@ -95,7 +95,11 @@ async function getNewGeneratedContentForReplacement(currentNode) {
             })
         });
         const data = await resp.json();
-        currentNode.innerHTML = data;
+        if (data.completion) {
+            currentNode.innerHTML = data.completion;
+            currentNode.style.color = "black";
+        }
+
         console.log(resp);
         console.log(data);
     } catch (error) {
@@ -103,7 +107,7 @@ async function getNewGeneratedContentForReplacement(currentNode) {
     }
 
     // currentNode.innerHTML = resp.content;
-    currentNode.style.color = "black";
+
 }
 
 async function getBlockTextContentRiskScore(blockText): Promise<number> {
