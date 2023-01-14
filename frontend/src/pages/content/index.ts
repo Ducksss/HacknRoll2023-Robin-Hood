@@ -1,7 +1,6 @@
 // @ts-nocheck
 import _ from "lodash";
 import axios from "axios";
-import styles from "../styl";
 
 var threshold = 0;
 var activePopup = false;
