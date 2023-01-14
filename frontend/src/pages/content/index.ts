@@ -91,6 +91,15 @@ let addWarning = (function () {
             'div[data-content-editable-leaf="true"]'
         )[0];
 
+        blockInnerTextContent.style.position = "relative";
+        const modal = blockInnerTextContent.appendChild(
+            document.createElement("div")
+        );
+        modal.innerHTML = `
+        <div className="Modal">
+            <h1>Test</h1>
+        </div>
+        `;
         console.log("#1", blockInnerTextContent.innerHTML);
         blockInnerTextContent.innerHTML = "KEI LOK IS A BOT";
 
