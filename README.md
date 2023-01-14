@@ -19,7 +19,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Ducksss/Robin-Hood">
-    <img src="assets/robin-hood-bg.jpg" alt="Logo" width="120" height="120">
+    <img src="assets/robin-hood-bg.png" alt="Logo" width="120" height="120">
   </a>
 
 <h3 align="center">Robin Hood</h3>
