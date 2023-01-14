@@ -6,22 +6,27 @@ const manifest: ManifestType = {
     name: pkg.displayName,
     version: pkg.version,
     description: pkg.description,
-    permissions: ["storage", "tabs", "activeTab", "scripting"],
-    options_page: "src/pages/options/index.html",
     background: {
         service_worker: "src/pages/background/index.js",
         type: "module"
     },
     action: {
-        default_popup: "src/pages/popup/index.html",
-        default_icon: "icon-34.png"
-    },
-    chrome_url_overrides: {
-        newtab: "src/pages/newtab/index.html"
+        default_icon: {
+            "16": "icon-128.png",
+            "32": "icon-128.png",
+            "48": "icon-128.png",
+            "128": "icon-128.png"
+        }
     },
     icons: {
+        "16": "icon-128.png",
+        "32": "icon-128.png",
+        "48": "icon-128.png",
         "128": "icon-128.png"
     },
+    options_page: "src/pages/options/index.html",
+    permissions: ["storage", "activeTab", "scripting", "tabs"],
+    host_permissions: ["https://www.notion.so/*", "https://www.notion.so/**"],
     content_scripts: [
         {
             matches: ["http://*/*", "https://*/*", "<all_urls>"],
@@ -29,11 +34,10 @@ const manifest: ManifestType = {
             css: ["contentStyle.css"]
         }
     ],
-    devtools_page: "src/pages/devtools/index.html",
     web_accessible_resources: [
         {
-            resources: ["contentStyle.css", "icon-128.png", "icon-34.png"],
-            matches: []
+            resources: [],
+            matches: ["https://www.notion.so/*"]
         }
     ]
 };
