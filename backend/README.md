@@ -27,10 +27,10 @@ Catch me if you can make use of OpenAI's API to access GPT-3. To access OpenAI's
     cp .env.example .env
     ```
 
-### Create onnx file
+### Create ONNX file
 Create onnx file.
 ```
-python -m model.onnx --model=gpt2 --feature=causal-lm onnx/
+python -m transformers.onnx --model=gpt2 --feature=causal-lm onnx/
 ```
 
 ### Start the Development Server
