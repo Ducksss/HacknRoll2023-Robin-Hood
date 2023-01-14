@@ -150,40 +150,40 @@ async function getBlockTextContentRiskScore(blockText): number {
 //     };
 // })();
 
-// Load modal
-let loadSideBar = (function () {
-    try {
-        setTimeout(() => {
-            const notionMainContainer = document.querySelectorAll(
-                'div[class="notion-cursor-listener"]'
-            )[0];
+// // Load modal
+// let loadSideBar = (function () {
+//     try {
+//         setTimeout(() => {
+//             const notionMainContainer = document.querySelectorAll(
+//                 'div[class="notion-cursor-listener"]'
+//             )[0];
 
-            // Create a new div element
-            const sidebar = document.createElement("div");
-            sidebar.id = "sidebar";
-            sidebar.className = "Sidebar__SidebarWrapper";
+//             // Create a new div element
+//             const sidebar = document.createElement("div");
+//             sidebar.id = "sidebar";
+//             sidebar.className = "Sidebar__SidebarWrapper";
 
-            // Add our title to the sidebar
-            const sidebarTitle = document.createElement("h3");
-            sidebarTitle.innerText = "Robin Hood";
-            sidebarTitle.className = "Popup__Title Title";
-            sidebar.appendChild(sidebarTitle);
+//             // Add our title to the sidebar
+//             const sidebarTitle = document.createElement("h3");
+//             sidebarTitle.innerText = "Robin Hood";
+//             sidebarTitle.className = "Popup__Title Title";
+//             sidebar.appendChild(sidebarTitle);
 
-            // Make it scrollable
-            const sidebarScrollable = document.createElement("div");
-            sidebarScrollable.className = "Popup__Scrollable Scrollable";
-            sidebarScrollable.id = "sidebarScrollable";
-            sidebar.appendChild(sidebarScrollable);
+//             // Make it scrollable
+//             const sidebarScrollable = document.createElement("div");
+//             sidebarScrollable.className = "Popup__Scrollable Scrollable";
+//             sidebarScrollable.id = "sidebarScrollable";
+//             sidebar.appendChild(sidebarScrollable);
 
-            // Get the 2nd child of the main container
-            const mainContainerFirstChild = notionMainContainer.children[2];
-            // Insert the sidebar after the 2nd child
-            notionMainContainer.insertBefore(sidebar, mainContainerFirstChild);
-        }, 1000);
-    } catch (err) {
-        console.log(err);
-    }
-})();
+//             // Get the 2nd child of the main container
+//             const mainContainerFirstChild = notionMainContainer.children[2];
+//             // Insert the sidebar after the 2nd child
+//             notionMainContainer.insertBefore(sidebar, mainContainerFirstChild);
+//         }, 1000);
+//     } catch (err) {
+//         console.log(err);
+//     }
+// })();
 
 // Function to call for each element of the homepage
 let runScript = (function () {
