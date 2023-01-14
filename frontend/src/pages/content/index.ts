@@ -1,7 +1,7 @@
 // @ts-nocheck
 import _ from "lodash";
 
-var threshold = 0;
+var threshold = 35;
 var audience = "Knowledgeable",
     formality = "Neutral",
     positivity = "Neutral",
@@ -95,6 +95,7 @@ async function generateNewContentAndReplace(currentNode) {
             })
         });
         const data = await resp.json();
+        currentNode.innerHTML = data;
         console.log(resp);
         console.log(data);
     } catch (error) {
