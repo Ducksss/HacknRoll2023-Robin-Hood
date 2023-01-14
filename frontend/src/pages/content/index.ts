@@ -59,33 +59,50 @@ let getTextContent = (function (): string {
 
 // Function to append advisory
 let addWarning = (function () {
-    return function (el: Element, score: number) {
+    return async function (el: Element, score: number) {
         console.log(el);
         // Get the tweet from this element
         let blockInnerTextContent = el.querySelectorAll(
             'div[data-content-editable-leaf="true"]'
         )[0];
 
-        blockInnerTextContent.style.position = "relative";
-        const modal = blockInnerTextContent.appendChild(
-            document.createElement("div")
-        );
-        modal.innerHTML = `
-        <div className="Modal">
-            <h1>Test</h1>
-        </div>
-        `;
-        console.log("#1", blockInnerTextContent.innerHTML);
-        blockInnerTextContent.innerHTML = "KEI LOK IS A BOT";
-
-        // Add a click listener to the card
-        const card = document.getElementById(key);
-        card.addEventListener("click", () => {
-            window.alert("Clicked!");
-            setTextContent(el, "Clicked!");
+        blockInnerTextContent.style.color = "red";
+        blockInnerTextContent.addEventListener("click", () => {
+            generateNewContentAndReplace(blockInnerTextContent);
         });
+
+        return;
     };
 })();
+
+async function generateNewContentAndReplace(currentNode) {
+    console.log(currentNode);
+    console.log("Ran generateNewContentAndReplace!");
+    try {
+        const resp = await fetch("http://localhost:8080/api/v1/completion", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                context: "general",
+                audience: "general",
+                intent: "general",
+                formality: "neutral",
+                role: "anyone",
+                text: currentNode.textContent
+            })
+        });
+        const data = await resp.json();
+        console.log(resp);
+        console.log(data);
+    } catch (error) {
+        console.log(error);
+    }
+
+    // currentNode.innerHTML = resp.content;
+    currentNode.style.color = "black";
+}
 
 async function getBlockTextContentRiskScore(blockText): number {
     // Awaiting backend team to introduce API and return a score
@@ -100,6 +117,41 @@ async function getBlockTextContentRiskScore(blockText): number {
         }, 1000);
     });
 }
+
+// Load modal
+let loadSideBar = (function () {
+    try {
+        setTimeout(() => {
+            const notionMainContainer = document.querySelectorAll(
+                'div[class="notion-cursor-listener"]'
+            )[0];
+
+            // Create a new div element
+            const sidebar = document.createElement("div");
+            sidebar.id = "sidebar";
+            sidebar.className = "Sidebar__SidebarWrapper";
+
+            // Add our title to the sidebar
+            const sidebarTitle = document.createElement("h3");
+            sidebarTitle.innerText = "Robin Hood";
+            sidebarTitle.className = "Popup__Title Title";
+            sidebar.appendChild(sidebarTitle);
+
+            // Make it scrollable
+            const sidebarScrollable = document.createElement("div");
+            sidebarScrollable.className = "Popup__Scrollable Scrollable";
+            sidebarScrollable.id = "sidebarScrollable";
+            sidebar.appendChild(sidebarScrollable);
+
+            // Get the 2nd child of the main container
+            const mainContainerFirstChild = notionMainContainer.children[2];
+            // Insert the sidebar after the 2nd child
+            notionMainContainer.insertBefore(sidebar, mainContainerFirstChild);
+        }, 1000);
+    } catch (err) {
+        console.log(err);
+    }
+})();
 
 // Function to call for each element of the homepage
 let runScript = (function () {
