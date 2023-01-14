@@ -13,6 +13,7 @@ def compute_perplexity(
     max_length=None,
 ):
 
+    device = 'cuda' if torch.cuda.is_available() else 'cpu'
     # if batch_size > 1 (which generally leads to padding being required), and
     # if there is not an already assigned pad_token, assign an existing
     # special token to also be the padding token
