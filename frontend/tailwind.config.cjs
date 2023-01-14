@@ -3,7 +3,7 @@ module.exports = {
     theme: {
         colors: {
             "primary-light": "#1fb6ff",
-            "primary-dark": "#7e5bef"
+            "primary-dark": "#293056"
         },
         extend: {
             animation: {
