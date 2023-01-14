@@ -1,12 +1,12 @@
 {
-  "name": "vite-web-extension",
-  "displayName": "Web Extension Boilerplate",
-  "version": "1.0.4",
+  "name": "catch-me-if-you-can-web-extension",
+  "displayName": "Catch me if you can",
+  "version": "1.0.0",
   "description": "A simple chrome extension template with Vite, React, TypeScript and Tailwind CSS.",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JohnBra/web-extension.git"
+    "url": "https://github.com/Ducksss/Catch-Me-If-You-Can"
   },
   "scripts": {
     "build": "tsc --noEmit && vite build",
