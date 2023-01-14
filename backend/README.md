@@ -4,6 +4,8 @@ This folder consist of the python backend for the GPT-like detection and GPT tex
 
 ## Getting Started
 
+The following few sections describe the steps required to run the backend development server. If you just want to test out the application, refers to the instructions from the root `README.md` to start the FastAPI server using docker-compose.
+
 ### Install Dependencies
 Run the following commands to install dependencies.
 ```
@@ -25,6 +27,11 @@ Catch me if you can make use of OpenAI's API to access GPT-3. To access OpenAI's
     cp .env.example .env
     ```
 
+### Create onnx file
+Create onnx file.
+```
+python -m model.onnx --model=gpt2 --feature=causal-lm onnx/
+```
 
 ### Start the Development Server
 Run the following commands to start the server in development mode.
@@ -36,10 +43,10 @@ uvicorn main:app --host 0.0.0.0 --port 8080
 
 To access the backend, you need to first build the Docker container using the following command
 ```
-docker build -t catch-me-if-you-can .
+docker build -t robin-hood .
 ```
 
 After the container is created, you can run the following commands to start the Docker container
 ```
-docker run -p 8080:8080 -it catch-me-if-you-can
+docker run --rm --name robin-hood -p 8080:8080 --gpus all -it robin-hood
 ```

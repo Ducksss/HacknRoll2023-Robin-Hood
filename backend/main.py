@@ -7,6 +7,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from api.config import settings
 from api.routes import router
 
+from onnxruntime import InferenceSession
+from transformers import AutoTokenizer
+
+
 
 def create_app() -> FastAPI:
 
@@ -43,6 +47,22 @@ if settings.BACKEND_CORS_ORIGINS:
         allow_methods=["*"],
         allow_headers=["*"],
     )
+
+@app.on_event("startup")
+async def startup_event():
+    """
+    Initialize FastAPI and add variables
+    """
+
+    # Initialize the pytorch model
+    session = InferenceSession("onnx/model.onnx")
+    tokenizer = AutoTokenizer.from_pretrained('gpt2')
+
+    # add model and other preprocess tools too app state
+    app.package = {
+        "session": session,
+        "tokenizer": tokenizer,
+    }
 
 
 @app.get("/")

@@ -3,7 +3,7 @@ from pydantic import BaseSettings, AnyHttpUrl
 
 
 class Settings(BaseSettings):
-    BACKEND_CORS_ORIGINS: list[Union[str, AnyHttpUrl]] = [
+    BACKEND_CORS_ORIGINS: List[Union[str, AnyHttpUrl]] = [
         "http://localhost:8080"
     ]
     TEST: str = "This was set in config.py"
