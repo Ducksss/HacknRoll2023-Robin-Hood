@@ -81,3 +81,5 @@ credential/
 # build
 dist
 
+# vite.config.ts.timestamp
+vite.config.ts.timestamp-*
