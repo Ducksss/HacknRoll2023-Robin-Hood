@@ -16,7 +16,7 @@ export default function Newtab(): JSX.Element {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React!
+          Please Learn React!
         </a>
       </header>
     </div>
