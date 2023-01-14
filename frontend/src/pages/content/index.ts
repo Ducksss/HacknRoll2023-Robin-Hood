@@ -254,7 +254,7 @@ waitFor(
         console.log("wrapper", wrapper.children);
         loadCss();
         runScript(blocks);
-        loadSideBar();
+        // loadSideBar();
         // Observe for changes of wrapper's child nodes
         (() => {
             scanDiv(wrapper, function (el) {
