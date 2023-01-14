@@ -1,0 +1,121 @@
+.Popup {
+    hr {
+        height: 0px;
+        border: none;
+        border-top: 0.0000000001px solid #6e6e73;
+        border-radius: 5px;
+    }
+    .Title {
+        padding: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        img {
+            height: 50px;
+            width: 50px;
+        }
+        .Right {
+            display: flex;
+            flex-direction: column;
+            padding-left: 20px;
+            h1 {
+                color: #05603a;
+                font-size: 20px;
+                font-weight: bold;
+                text-align: left;
+            }
+            p {
+                color: #3c3c3c;
+            }
+        }
+    }
+
+    .Zero-shot {
+        padding: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        h2 {
+            font-size: 17px;
+            font-weight: bold;
+            color: #293056;
+        }
+    }
+
+    .Text-conversion {
+        padding: 20px;
+        &__Header {
+            color: #293056;
+            font-size: 17px;
+            font-weight: bold;
+            text-align: left;
+        }
+    }
+
+    .Footer {
+        padding: 0 20px;
+        padding-bottom: 20px;
+        p {
+            color: #3c3c3c;
+        }
+    }
+}
+
+.Text-conversion-option {
+    padding: 20px 0;
+    position: relative;
+    &__Header {
+        text-align: left;
+        padding-bottom: 10px;
+    }
+
+    .Text-conversion-option__Parent {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        padding: 10px;
+        border: thin solid #cfcfcf;
+        background-color: white;
+        outline: none;
+        border-radius: 5px;
+        cursor: pointer;
+        h3 {
+            span {
+                color: #667085;
+            }
+        }
+        .Icon {
+            font-size: 20px;
+            transition: transform 0.2s ease;
+            &--expanded {
+                transform: rotate(-180deg);
+            }
+        }
+    }
+    .Container {
+        z-index: 9999999999999;
+        display: none;
+        background-color: white;
+        box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1),
+            0 3px 6px rgba(0, 0, 0, 0.08);
+        position: absolute;
+        &--expanded {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+        }
+        .Item {
+            cursor: pointer;
+            padding: 10px 0;
+            &:hover {
+                background-color: #d7d7d7;
+            }
+
+            &:last-of-type {
+                border-radius: 0 0 5px 5px;
+            }
+        }
+    }
+}
