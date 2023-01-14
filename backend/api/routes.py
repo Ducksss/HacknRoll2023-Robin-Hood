@@ -25,10 +25,9 @@ router = APIRouter(
 
 @router.post("/completion")
 async def completion(
-    raw_request: Request,
+    request: CompletionIn,
     openai: openai = Depends(get_openai),
 ):
-    request = CompletionIn(**await raw_request.json())
     prompt = "Rephrase the following paragraph "
     prompt += "in context of an {context}. ".format(context=request.context)
     prompt += (
@@ -67,4 +66,3 @@ def detect(
     )
 
     return {"result": result}
-    # return{"completion": "I am just a normal sentence not suspicious at all."}
