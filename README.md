@@ -43,6 +43,7 @@
 ## Table of Contents
 - [About The Project](#about-the-project)
 - [Built-With](#built-with)
+- [High Level Architecture](#high-level-architecture)
 - [Getting Started](#getting-started)
 - [Browser Extension](#browser-extension)
 - [FastAPI Backend](#fastapi-backend)
@@ -85,6 +86,7 @@ Introducing RobinHood - the ultimate hack for all your GPT-generated text woes. 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### High Level Architecture
+<a href="#built-with"></a>
 ```mermaid
 sequenceDiagram
 Web Extension FE->>Notion: Verify if domain is `https://www.notion.so/*`
