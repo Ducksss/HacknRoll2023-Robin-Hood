@@ -84,6 +84,20 @@ Introducing RobinHood - the ultimate hack for all your GPT-generated text woes. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+### High Level Architecture
+```mermaid
+sequenceDiagram
+Web Extension FE->>Notion: Verify if domain is `https://www.notion.so/*`
+Web Extension FE->>Notion: Recursively Parse DOM Elements to paragraphs blocks from the document
+Web Extension FE->>FastAPI Backend: Send paragraph blocks to the backend for zero-shot detection
+FastAPI Backend->>Web Extension FE: Sends back a score that is tied to each respective paragraph (detection)
+Web Extension FE->>Notion: Inject DOM attributes and CSS to highlight high-risk texts
+Web Extension FE->>FastAPI Backend: On Click, revalidate any paragraph with a unsatisfactory score that is >= 22.5 threshold
+FastAPI Backend->>Web Extension FE: Document.ReplaceText/Element.innerHTML text content with converted text
+```
+
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 <!-- GETTING STARTED -->
