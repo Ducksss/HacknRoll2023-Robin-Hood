@@ -112,11 +112,12 @@ Robin Hood is accessible via [Browser Extension(Twitter.com)](https://github.com
 1. Create an OpenAI account and create your own API key by following [this tutorial](https://elephas.app/blog/how-to-create-openai-api-keys-cl5c4f21d281431po7k8fgyol0).
 2. Insert your API key to the `docker-compose.yml` file as follows:
     ```yaml
-
+      environment:
+        - OPENAI_API_KEY=<insert-your-openai-api-key-here>
     ```
 3. Start the FastAPI backend by simply running the following command:
     ```bash
-    docker compose up
+    docker compose up  --build
     ```
 
 For more instructions on how to start development server, please refer to the README file under the `backend` folder.
