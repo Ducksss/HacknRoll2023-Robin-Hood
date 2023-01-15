@@ -62,6 +62,9 @@
 
 Introducing RobinHood - the ultimate hack for all your GPT-generated text woes. This bad boy uses cutting-edge GPT model to automatically detect and rephrase any GPT-generated text on Notion. But wait, there's more - you also have the power to tweak the intent, context, and styling of the write-up, making it virtually impossible for anyone to catch you using GPT on your assignments. Say goodbye to the fear of getting caught and hello to effortless, top-notch writing with RobinHood.
 
+### Our Project Mission Goals And Values
+Our team goal is to democratize AI tools by developing and launching RobinHood, the ultimate hack for all GPT-generated text woes, using cutting-edge GPT technology to automatically detect and rephrase any GPT-generated text on Notion, while also giving users the power to tweak intent, context, and styling for virtually undetectable GPT use in assignments. With this tool, we aim to empower students and academia with effortless, top-notch writing capabilities, and to help them overcome the fear of getting caught using GPT, making advanced AI tools accessible to all.
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
