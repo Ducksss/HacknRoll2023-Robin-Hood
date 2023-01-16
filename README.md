@@ -9,11 +9,11 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
+
 [![Contributors](https://img.shields.io/github/contributors/Ducksss/Robin-Hood.svg)][contributors-url]
 [![Forks](https://img.shields.io/github/forks/Ducksss/Robin-Hood.svg)][forks-url]
 [![Stargazers](https://img.shields.io/github/stars/Ducksss/Robin-Hood.svg)][stars-url]
 [![MIT License](https://img.shields.io/github/license/Ducksss/Robin-Hood.svg)][license-url]
-
 
 <!-- PROJECT LOGO -->
 <br />
@@ -38,9 +38,10 @@
   </p>
 </div>
 
-
 <!-- TABLE OF CONTENTS -->
+
 ## Table of Contents
+
 - [About The Project](#about-the-project)
 - [Built-With](#built-with)
 - [High Level Architecture](#high-level-architecture)
@@ -53,43 +54,47 @@
 - [Contact](#contact)
 - [References](#references)
 
-
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
+
 <a href="#about-the-project"></a>
 <a href="https://Robin-Hood-c9549.web.app/"><img src="assets/demo_web.gif" alt="demo_web.gif"></a>
 <a href="https://github.com/Ducksss/Robin-Hood/blob/main/README.md#browser-extension"><img src="assets/demo_ext.gif" alt="demo_ext.gif"></a>
 
+![](https://github.com/Ducksss/Robin-Hood/blob/main/frontend/src/assets/img/promotional-material.png)
+
 Introducing RobinHood - the ultimate hack for all your GPT-generated text woes. This bad boy uses cutting-edge GPT model to automatically detect and rephrase any GPT-generated text on Notion. But wait, there's more - you also have the power to tweak the intent, context, and styling of the write-up, making it virtually impossible for anyone to catch you using GPT on your assignments. Say goodbye to the fear of getting caught and hello to effortless, top-notch writing with RobinHood.
 
 ### Our Project Mission Goals And Values
+
 Our team goal is to democratize AI tools by developing and launching RobinHood, the ultimate hack for all GPT-generated text woes, using cutting-edge GPT technology to automatically detect and rephrase any GPT-generated text on Notion, while also giving users the power to tweak intent, context, and styling for virtually undetectable GPT use in assignments. With this tool, we aim to empower students and academia with effortless, top-notch writing capabilities, and to help them overcome the fear of getting caught using GPT, making advanced AI tools accessible to all.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 ### Built With
+
 <a href="#built-with"></a>
 
-* [TypeScript](https://www.typescriptlang.org/)
-* [React 18](https://reactjs.org/)
-* [Chrome Extension Manifest Version 3](https://developer.chrome.com/docs/extensions/mv3/intro/)
-* [Vite](https://vitejs.dev/)
-* [Tailwindcss](https://tailwindcss.com/)
-* [SASS](https://sass-lang.com/)
-* [Notion](https://notion.so)
-* [FastAPI](https://fastapi.tiangolo.com/)
-* [NLTK](https://www.nltk.org/)
-* [Huggingface 🤗](https://huggingface.co/)
-* [GPT-2](https://github.com/openai/gpt-2)
-* [OpenAI API](https://openai.com/api/)
-
+- [TypeScript](https://www.typescriptlang.org/)
+- [React 18](https://reactjs.org/)
+- [Chrome Extension Manifest Version 3](https://developer.chrome.com/docs/extensions/mv3/intro/)
+- [Vite](https://vitejs.dev/)
+- [Tailwindcss](https://tailwindcss.com/)
+- [SASS](https://sass-lang.com/)
+- [Notion](https://notion.so)
+- [FastAPI](https://fastapi.tiangolo.com/)
+- [NLTK](https://www.nltk.org/)
+- [Huggingface 🤗](https://huggingface.co/)
+- [GPT-2](https://github.com/openai/gpt-2)
+- [OpenAI API](https://openai.com/api/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### High Level Architecture
+
 <a href="#built-with"></a>
+
 ```mermaid
 sequenceDiagram
 Web Extension FE->>Notion: Verify if domain is `https://www.notion.so/*`
@@ -101,16 +106,16 @@ Web Extension FE->>FastAPI Backend: On Click, revalidate any paragraph with a un
 FastAPI Backend->>Web Extension FE: Document.ReplaceText/Element.innerHTML text content with converted text
 ```
 
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
 <!-- GETTING STARTED -->
+
 ## Getting Started
 
 Robin Hood is accessible via [Browser Extension(Twitter.com)](https://github.com/Ducksss/Robin-Hood/tree/main/extension), running on-top of Notion.so.
 
 ### Browser Extension
+
 <a href="#fastapi-backend"></a>
 
 1. Clone the repo.
@@ -126,40 +131,40 @@ Robin Hood is accessible via [Browser Extension(Twitter.com)](https://github.com
 5. Visit `https://notion.so/` and Start Hacking!
 
 ### FastAPI Backend
+
 <a href="#fastapi-backend"></a>
 
 1. Create an OpenAI account and create your own API key by following [this tutorial](https://elephas.app/blog/how-to-create-openai-api-keys-cl5c4f21d281431po7k8fgyol0).
 2. Insert your API key to the `docker-compose.yml` file as follows:
-    ```yaml
-      environment:
-        - OPENAI_API_KEY=<insert-your-openai-api-key-here>
-    ```
+   ```yaml
+   environment:
+     - OPENAI_API_KEY=<insert-your-openai-api-key-here>
+   ```
 3. Start the FastAPI backend by simply running the following command:
-    ```bash
-    docker compose up  --build
-    ```
+   ```bash
+   docker compose up  --build
+   ```
 
 For more instructions on how to start development server, please refer to the README file under the `backend` folder.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
 <!-- ROADMAP -->
+
 ## Roadmap
+
 - [ ] Extension support for other WYSIWYG editors (e.g. Google Docs, Microsoft Word)
 - [ ] Stay up-to-date for SOTA GPT text detection algorithm
 - [ ] Enhance GPT completion features (e.g. Text Summarisation, Text Completion, Text Classification)
 - [ ] SaaS support for general user with PAYG subscription model
 - [ ] Dashboard for past history and history exporting
 
-
 See the [open issues](https://github.com/Ducksss/Robin-Hood/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- CONTRIBUTING -->
+
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -175,18 +180,16 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- LICENSE -->
+
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- CONTACT -->
+
 ## Contact
 
 - Chai Pin Zheng (Front-End Developer) - [LinkedIn](https://www.linkedin.com/in/chai-pin-zheng-5610921aa/)
@@ -202,6 +205,7 @@ Project Link: [https://github.com/Ducksss/Robin-Hood](https://github.com/Ducksss
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- References -->
+
 ## References
 
 - [GPT-Zero](https://etedward-gptzero-main-zqgfwb.streamlit.app/)
@@ -209,9 +213,9 @@ Project Link: [https://github.com/Ducksss/Robin-Hood](https://github.com/Ducksss
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/Ducksss/Robin-Hood.svg?style=for-the-badge
 [contributors-url]: https://github.com/Ducksss/Robin-Hood/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/Ducksss/Robin-Hood.svg?style=for-the-badge
