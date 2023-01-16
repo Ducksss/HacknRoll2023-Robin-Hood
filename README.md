@@ -113,7 +113,7 @@ FastAPI Backend->>Web Extension FE: Document.ReplaceText/Element.innerHTML text 
 
 ## Getting Started
 
-Robin Hood is accessible via [Browser Extension(Twitter.com)](https://github.com/Ducksss/HacknRoll2023-Robin-Hood/tree/main/extension), running on-top of Notion.so.
+Robin Hood is accessible via [Browser Extension(https://www.notion.so/)](https://github.com/Ducksss/HacknRoll2023-Robin-Hood/tree/main/extension), running on-top of Notion.so.
 
 ### Browser Extension
 
