@@ -10,15 +10,15 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 
-[![Contributors](https://img.shields.io/github/contributors/Ducksss/Robin-Hood.svg)][contributors-url]
-[![Forks](https://img.shields.io/github/forks/Ducksss/Robin-Hood.svg)][forks-url]
-[![Stargazers](https://img.shields.io/github/stars/Ducksss/Robin-Hood.svg)][stars-url]
-[![MIT License](https://img.shields.io/github/license/Ducksss/Robin-Hood.svg)][license-url]
+[![Contributors](https://img.shields.io/github/contributors/Ducksss/HacknRoll2023-Robin-Hood.svg)][contributors-url]
+[![Forks](https://img.shields.io/github/forks/Ducksss/HacknRoll2023-Robin-Hood.svg)][forks-url]
+[![Stargazers](https://img.shields.io/github/stars/Ducksss/HacknRoll2023-Robin-Hood.svg)][stars-url]
+[![MIT License](https://img.shields.io/github/license/Ducksss/HacknRoll2023-Robin-Hood.svg)][license-url]
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/Ducksss/Robin-Hood">
+  <a href="https://github.com/Ducksss/HacknRoll2023-Robin-Hood">
     <img src="assets/robin-hood-bg.png" alt="Logo" width="120" height="120">
   </a>
 
@@ -32,9 +32,9 @@
     ·
     <a href="#fastapi-backend">Fast API Backend</a>
     .
-    <a href="https://github.com/Ducksss/Robin-Hood/issues">Report Bugs</a>
+    <a href="https://github.com/Ducksss/HacknRoll2023-Robin-Hood/issues">Report Bugs</a>
     ·
-    <a href="https://github.com/Ducksss/Robin-Hood/issues">Request Features</a>
+    <a href="https://github.com/Ducksss/HacknRoll2023-Robin-Hood/issues">Request Features</a>
   </p>
 </div>
 
@@ -61,9 +61,9 @@
 <a href="#about-the-project"></a>
 
 <!-- <a href="https://Robin-Hood-c9549.web.app/"><img src="assets/demo_web.gif" alt="demo_web.gif"></a>
-<a href="https://github.com/Ducksss/Robin-Hood/blob/main/README.md#browser-extension"><img src="assets/demo_ext.gif" alt="demo_ext.gif"></a> -->
+<a href="https://github.com/Ducksss/HacknRoll2023-Robin-Hood/blob/main/README.md#browser-extension"><img src="assets/demo_ext.gif" alt="demo_ext.gif"></a> -->
 
-![](https://github.com/Ducksss/Robin-Hood/blob/main/frontend/src/assets/img/promotional-material.png)
+![](https://github.com/Ducksss/HacknRoll2023-Robin-Hood/blob/main/frontend/src/assets/img/promotional-material.png)
 
 Introducing RobinHood - the ultimate hack for all your GPT-generated text woes. This bad boy uses cutting-edge GPT model to automatically detect and rephrase any GPT-generated text on Notion. But wait, there's more - you also have the power to tweak the intent, context, and styling of the write-up, making it virtually impossible for anyone to catch you using GPT on your assignments. Say goodbye to the fear of getting caught and hello to effortless, top-notch writing with RobinHood.
 
@@ -113,7 +113,7 @@ FastAPI Backend->>Web Extension FE: Document.ReplaceText/Element.innerHTML text 
 
 ## Getting Started
 
-Robin Hood is accessible via [Browser Extension(Twitter.com)](https://github.com/Ducksss/Robin-Hood/tree/main/extension), running on-top of Notion.so.
+Robin Hood is accessible via [Browser Extension(Twitter.com)](https://github.com/Ducksss/HacknRoll2023-Robin-Hood/tree/main/extension), running on-top of Notion.so.
 
 ### Browser Extension
 
@@ -121,7 +121,7 @@ Robin Hood is accessible via [Browser Extension(Twitter.com)](https://github.com
 
 1. Clone the repo.
    ```sh
-   git clone https://github.com/Ducksss/Robin-Hood.git
+   git clone https://github.com/Ducksss/HacknRoll2023-Robin-Hood.git
    ```
 2. Visit the Extension Settings Page from your Chromium Browser.
    ```sh
@@ -160,7 +160,7 @@ For more instructions on how to start development server, please refer to the RE
 - [ ] SaaS support for general user with PAYG subscription model
 - [ ] Dashboard for past history and history exporting
 
-See the [open issues](https://github.com/Ducksss/Robin-Hood/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/Ducksss/HacknRoll2023-Robin-Hood/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -201,7 +201,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 - Wong Zhao Wu (Backend Engineer/AI Engineer) - [LinkedIn](https://www.linkedin.com/in/zhao-wu-wong/)
 
-Project Link: [https://github.com/Ducksss/Robin-Hood](https://github.com/Ducksss/Robin-Hood)
+Project Link: [https://github.com/Ducksss/HacknRoll2023-Robin-Hood](https://github.com/Ducksss/HacknRoll2023-Robin-Hood)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -217,15 +217,15 @@ Project Link: [https://github.com/Ducksss/Robin-Hood](https://github.com/Ducksss
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/Ducksss/Robin-Hood.svg?style=for-the-badge
-[contributors-url]: https://github.com/Ducksss/Robin-Hood/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Ducksss/Robin-Hood.svg?style=for-the-badge
-[forks-url]: https://github.com/Ducksss/Robin-Hood/network/members
-[stars-shield]: https://img.shields.io/github/stars/Ducksss/Robin-Hood.svg?style=for-the-badge
-[stars-url]: https://github.com/Ducksss/Robin-Hood/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Ducksss/Robin-Hood.svg?style=for-the-badge
-[issues-url]: https://github.com/Ducksss/Robin-Hood/issues
-[license-shield]: https://img.shields.io/github/license/Ducksss/Robin-Hood.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/Ducksss/HacknRoll2023-Robin-Hood.svg?style=for-the-badge
+[contributors-url]: https://github.com/Ducksss/HacknRoll2023-Robin-Hood/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Ducksss/HacknRoll2023-Robin-Hood.svg?style=for-the-badge
+[forks-url]: https://github.com/Ducksss/HacknRoll2023-Robin-Hood/network/members
+[stars-shield]: https://img.shields.io/github/stars/Ducksss/HacknRoll2023-Robin-Hood.svg?style=for-the-badge
+[stars-url]: https://github.com/Ducksss/HacknRoll2023-Robin-Hood/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Ducksss/HacknRoll2023-Robin-Hood.svg?style=for-the-badge
+[issues-url]: https://github.com/Ducksss/HacknRoll2023-Robin-Hood/issues
+[license-shield]: https://img.shields.io/github/license/Ducksss/HacknRoll2023-Robin-Hood.svg?style=for-the-badge
 [license-url]: https://github.com/Ducksss/FakeNews/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
