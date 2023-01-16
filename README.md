@@ -59,8 +59,9 @@
 ## About The Project
 
 <a href="#about-the-project"></a>
-<a href="https://Robin-Hood-c9549.web.app/"><img src="assets/demo_web.gif" alt="demo_web.gif"></a>
-<a href="https://github.com/Ducksss/Robin-Hood/blob/main/README.md#browser-extension"><img src="assets/demo_ext.gif" alt="demo_ext.gif"></a>
+
+<!-- <a href="https://Robin-Hood-c9549.web.app/"><img src="assets/demo_web.gif" alt="demo_web.gif"></a>
+<a href="https://github.com/Ducksss/Robin-Hood/blob/main/README.md#browser-extension"><img src="assets/demo_ext.gif" alt="demo_ext.gif"></a> -->
 
 ![](https://github.com/Ducksss/Robin-Hood/blob/main/frontend/src/assets/img/promotional-material.png)
 
