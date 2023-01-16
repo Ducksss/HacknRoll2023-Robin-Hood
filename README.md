@@ -199,7 +199,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 - Grace Ng (AI Engineer/Backend Engineer) - [LinkedIn](https://www.linkedin.com/in/grace-ng-48832821a/)
 
-- Wong Zhao Wu (Backend Engineer/AI Engineer) - [LinkedIn](https://www.linkedin.com/in/zhao-wu-wong/)
+- Wong Zhao Wu (AI Engineer/Backend Engineer) - [LinkedIn](https://www.linkedin.com/in/zhao-wu-wong/)
 
 Project Link: [https://github.com/Ducksss/HacknRoll2023-Robin-Hood](https://github.com/Ducksss/HacknRoll2023-Robin-Hood)
 
