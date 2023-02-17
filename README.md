@@ -195,7 +195,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 - Chai Pin Zheng (Frontend Engineer) - [LinkedIn](https://www.linkedin.com/in/chai-pin-zheng-5610921aa/)
 
-- Tham Kei Lok (Frontend Engineer/UIUX Designer) - [LinkedIn](https://www.linkedin.com/in/thamkeilok/)
+- Tham Kei Lok (Frontend Engineer/UIUX Designer) - [LinkedIn](https://www.linkedin.com/in/keiloktql/)
 
 - Grace Ng (AI Engineer/Backend Engineer) - [LinkedIn](https://www.linkedin.com/in/grace-ng-48832821a/)
 
